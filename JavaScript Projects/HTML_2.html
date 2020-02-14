@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+    </head>
+    <h2> Fill out the form to contact us!</h2>
+    <body>
+    <div>
+        <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="contact" placeholder="Email">
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="usa">USA</option>
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+            </select>
+
+            <input type="submit" value="Submit" onclick="myFunction()">
+           
+            </form>
+    </div>
+        <link rel="stylesheet" type="text/css" href="CSS/CSS_1.css">
+
+        <p id="contactform"></p>
+        <script src="JS/JavaScript_2.js"></script>
+    
+    </body>
+</html>
