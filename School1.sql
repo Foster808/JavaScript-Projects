@@ -68,74 +68,148 @@ ADD FOREIGN KEY (Class_ID) REFERENCES Classes(Class_ID);
 --Software Developer Boot Camp
 --C# Boot Camp
 
---Not working yet
 
-INSERT INTO Classes (Class_Name)
-VALUES ('Software Developer Boot Camp');
+INSERT INTO Classes (Class_ID, Class_Name)
+VALUES (1, 'Software Developer Boot Camp');
 
-INSERT INTO Classes (Class_Name)
-VALUES ('C# Boot Camp');
+INSERT INTO Classes (Class_ID, Class_Name)
+VALUES (2, 'C# Boot Camp');
 
 
 --Step 9 Populate the Students table with six student names
 
---table isn't getting populated even though these statements do work
-UPDATE Students
-SET Student_Name='Bob Smith'
-WHERE Student_ID=1;
+INSERT INTO Students (Student_ID, Student_Name)
+VALUES (1, 'Bob Smith');
 
-UPDATE Students
-SET Student_Name='Cara Bronx'
-WHERE Student_ID=2;
+INSERT INTO Students (Student_ID, Student_Name)
+VALUES (2, 'Georgia Lines');
 
-UPDATE Students
-SET Student_Name='Julie Webb'
-WHERE Student_ID=3;
+INSERT INTO Students (Student_ID, Student_Name)
+VALUES (3, 'Julie Webb');
 
-UPDATE Students
-SET Student_Name='Jaleel Mack'
-WHERE Student_ID=4;
+INSERT INTO Students (Student_ID, Student_Name)
+VALUES (4, 'Jaleel Mack');
 
-UPDATE Students
-SET Student_Name='Tom More'
-WHERE Student_ID=5;
+INSERT INTO Students (Student_ID, Student_Name)
+VALUES (5, 'Robbie G');
 
-UPDATE Students
-SET Student_Name='Robbie G'
-WHERE Student_ID=6;
+INSERT INTO Students (Student_ID, Student_Name)
+VALUES (6, 'Nicole Last');
 
 SELECT * FROM Students
 
 --Step 10 Populate the Instructors table with two Istructor names
 
 --Not working yet
-UPDATE Instructors
-SET Instructor_Name='JW Wheal'
-WHERE Instructor_ID=1;
 
-UPDATE Instructors
-SET Instructor_Name='Clara Bradford'
-WHERE Instructor_ID=2;
+INSERT INTO Instructors (Instructor_ID, Instructor_Name)
+VALUES (1, 'JW Wheal');
 
+INSERT INTO Instructors (Instructor_ID, Instructor_Name)
+VALUES (2, 'Clara Foster');
+
+SELECT * FROM Instructors
 
 --Step 11 Within the Student table, assign values to the Class_ID foreign key (i.e. assign half the students
 --to one class and the other half to the other class).
 
+UPDATE Students 
+SET Class_ID='1'
+WHERE Student_ID=1;
+
+UPDATE Students 
+SET Class_ID='1'
+WHERE Student_ID=2;
+
+UPDATE Students 
+SET Class_ID='1'
+WHERE Student_ID=3;
+
+UPDATE Students 
+SET Class_ID='2'
+WHERE Student_ID=4;
+
+UPDATE Students 
+SET Class_ID='2'
+WHERE Student_ID=5;
+
+UPDATE Students 
+SET Class_ID='2'
+WHERE Student_ID=6;
+
+SELECT * FROM Students
 
 --Step 12 Within the Classes table, assign values to the Instructor_ID foreign key (i.e. assign one of the 
 --Instructors to one class and the other to the other class).
 
+UPDATE Classes
+SET Instructor_ID='1'
+WHERE Class_ID=1;
+
+UPDATE Classes
+SET Instructor_ID='2'
+WHERE Class_ID=2;
+
+SELECT * FROM Classes
 
 --Step 13 Within the Students table, assign values to the Instructor_ID foreign key (i.e. assign one of the
 --Instructors to half the students and the other Instructor to the other half of the students).
 
+UPDATE Students
+SET Instructor_ID='1'
+WHERE Student_ID=1;
+
+UPDATE Students
+SET Instructor_ID='1'
+WHERE Student_ID=2;
+
+UPDATE Students
+SET Instructor_ID='1'
+WHERE Student_ID=3;
+
+UPDATE Students
+SET Instructor_ID='2'
+WHERE Student_ID=4;
+
+UPDATE Students
+SET Instructor_ID='2'
+WHERE Student_ID=5;
+
+UPDATE Students
+SET Instructor_ID='2'
+WHERE Student_ID=6;
+
+SELECT * FROM Students
 
 --Step 14 Run a query to display all Instructor names
 
+SELECT * FROM Instructors
 
 --Step 15 Run a query to display all student names in alphabetical order.
 
+SELECT * FROM Students
+ORDER BY Student_Name ASC;
+
+--EXTRA
+SELECT * FROM Students
+ORDER BY Class_ID;
+
 
 --Step 16 Run a query that displays all classes, with the students and Instructors assigned to each.
+
+
+SELECT
+	Classes.Class_ID,
+	Classes.Class_Name,
+	Students.Student_ID,
+	Students.Student_Name,
+	Instructors.Instructor_ID,
+	Instructors.Instructor_Name AS Teacher
+FROM
+	Classes
+INNER JOIN
+	Students ON Students.Student_ID = Classes.Student_ID
+INNER JOIN
+	Instructors ON Instructors.Instructor_ID = Classes.Instructor_ID
 
 
