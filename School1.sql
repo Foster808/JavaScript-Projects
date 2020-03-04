@@ -98,17 +98,30 @@ VALUES (6, 'Nicole Last');
 
 SELECT * FROM Students
 
---Step 10 Populate the Instructors table with two Istructor names
+--Step 10 Populate the Instructors table with two Instructor names
+--NOT WORKING YET!
 
---Not working yet
+INSERT INTO Instructors (Instructor_ID, Instructor_Name, Student_ID, Class_ID)
+VALUES (1, 'JW Wheal', NULL, 1);
 
-INSERT INTO Instructors (Instructor_ID, Instructor_Name)
-VALUES (1, 'JW Wheal');
 
-INSERT INTO Instructors (Instructor_ID, Instructor_Name)
-VALUES (2, 'Clara Foster');
+INSERT INTO Instructors (Student_ID, Class_ID)
+VALUES (2, 2);
 
 SELECT * FROM Instructors
+
+UPDATE Instructors
+SET Student_ID=1, Class_ID=2
+WHERE Instructor_ID=1;
+
+UPDATE Instructors
+SET Student_ID=1, Class_ID=2
+WHERE Instructor_ID=2;
+
+
+-- ISNULL replaces values,    IS NULL  searches for something that esseentially doesn't exist
+--SELECt Statement
+
 
 --Step 11 Within the Student table, assign values to the Class_ID foreign key (i.e. assign half the students
 --to one class and the other half to the other class).
@@ -213,3 +226,12 @@ INNER JOIN
 	Instructors ON Instructors.Instructor_ID = Classes.Instructor_ID
 
 
+
+
+
+--EXTRA
+SELECT * FROM Instructors;
+
+SELECT Class_Name FROM Classes;
+
+SELECT * FROM Classes;
